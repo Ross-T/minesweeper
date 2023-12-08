@@ -2,7 +2,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.Random;
 
 @AllArgsConstructor
@@ -19,13 +18,6 @@ public class Board {
     private char[][] displayBoard = new char[size][size];
 
 
-    void createBoard() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                board[i][j] = empty;
-            }
-        }
-    }
 
     void createDisplayBoard() {
         for (int i = 0; i < size; i++) {
@@ -35,19 +27,36 @@ public class Board {
         }
     }
 
-    void placeMines() {
-        Random rand = new Random();
-        int minesPlaced = 0;
-        while (minesPlaced < mines) {
-            int x = rand.nextInt(size);
-            int y = rand.nextInt(size);
-            if (board[x][y] != mine) {
-                board[x][y] = mine;
-                minesPlaced++;
+
+
+    void printBoard() {
+        System.out.println("  ");
+        System.out.print("    ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(i + "   ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < size; i++) {
+            System.out.print(i + " ");
+
+            for (int j = 0; j < size; j++) {
+                System.out.print("| " + getCell(i, j) + " ");
             }
+
+            System.out.println("|");
+            System.out.print("   ");
+
+            for (int j = 0; j < size; j++) {
+                System.out.print("----");
+            }
+            System.out.println();
         }
     }
 
+    char getCell(int x, int y) {
+        return displayBoard[x][y];
+    }
 
 
 }
