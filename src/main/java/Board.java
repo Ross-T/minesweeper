@@ -35,6 +35,18 @@ public class Board {
         }
     }
 
+    void placeMines() {
+        Random rand = new Random();
+        int minesPlaced = 0;
+        while (minesPlaced < mines) {
+            int x = rand.nextInt(size);
+            int y = rand.nextInt(size);
+            if (board[x][y] != mine) {
+                board[x][y] = mine;
+                minesPlaced++;
+            }
+        }
+    }
 
 
     void printBoard() {
