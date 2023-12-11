@@ -2,6 +2,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.util.Random;
 
 @AllArgsConstructor
@@ -16,7 +17,6 @@ public class Board {
     private char empty = ' ';
     private char[][] board = new char[size][size];
     private char[][] displayBoard = new char[size][size];
-
 
 
     void createBoard() {
@@ -48,6 +48,30 @@ public class Board {
         }
     }
 
+    void calculateSurroundingMines() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (board[i][j] == mine) {
+                    continue;
+                }
+                int count = 0;
+                for (int k = -1; k <= 1; k++) {
+                    for (int l = -1; l <= 1; l++) {
+                        int adjacentX = i + k;
+                        int adjacentY = j + l;
+                        if (adjacentX >= 0 && adjacentY >= 0 && adjacentX < size && adjacentY < size) {
+                            if (board[adjacentX][adjacentY] == mine) {
+                                count++;
+                            }
+                        }
+                    }
+                }
+                if (count != 0) {
+                    board[i][j] = Character.forDigit(count, 10);
+                }
+            }
+        }
+    }
 
     void printBoard() {
         System.out.println("  ");
@@ -74,8 +98,9 @@ public class Board {
         }
     }
 
+
     char getCell(int x, int y) {
-        return displayBoard[x][y];
+        return board[x][y];
     }
 
 
