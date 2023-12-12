@@ -73,6 +73,16 @@ public class Board {
         }
     }
 
+    void revealCell(int x, int y) {
+        if (x < 0 || y < 0 || x >= size || y >= size) {
+            return;
+        }
+        if (displayBoard[x][y] != unrevealed) {
+            return;
+        }
+        displayBoard[x][y] = board[x][y];
+    }
+
     void printBoard() {
         System.out.println("  ");
         System.out.print("    ");
