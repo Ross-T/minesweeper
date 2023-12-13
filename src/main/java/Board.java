@@ -15,6 +15,7 @@ public class Board {
     private char mine = '*';
     private char unrevealed = '□';
     private char empty = ' ';
+    private char flagged = '⚑';
     private char[][] board = new char[size][size];
     private char[][] displayBoard = new char[size][size];
 
@@ -83,7 +84,29 @@ public class Board {
         displayBoard[x][y] = board[x][y];
     }
 
-    void printBoard() {
+    void makeMove(int x, int y, char action) {
+        if (action == 'r') {
+            if (board[x][y] == mine) {
+                System.out.println("You hit a mine! Game over.");
+                printBoard(board);
+            } else {
+                revealCell(x, y);
+            }
+        } else if (action == 'f') {
+            if (displayBoard[x][y] == flagged) {
+                displayBoard[x][y] = unrevealed;
+                printBoard(displayBoard);
+            } else if (displayBoard[x][y] == unrevealed) {
+                displayBoard[x][y] = flagged;
+            } else {
+                System.err.println("Error. Cannot flag a revealed cell."); // return to menu state
+            }
+        } else {
+            System.err.println("Error, Invalid action. Please enter your desired coordinates followed by either 'r' to reveal a cell or 'f' to flag/unflag a cell."); // return to menu state
+        }
+    }
+
+    void printBoard(char[][] board) {
         System.out.println("  ");
         System.out.print("    ");
         for (int i = 0; i < size; i++) {
@@ -95,7 +118,7 @@ public class Board {
             System.out.print(i + " ");
 
             for (int j = 0; j < size; j++) {
-                System.out.print("| " + getCell(i, j) + " ");
+                System.out.print("| " + getCell(board, i, j) + " ");
             }
 
             System.out.println("|");
@@ -109,7 +132,7 @@ public class Board {
     }
 
 
-    char getCell(int x, int y) {
+    char getCell(char[][] board, int x, int y) {
         return board[x][y];
     }
 
