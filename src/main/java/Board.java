@@ -18,7 +18,14 @@ public class Board {
     private char flagged = '⚑';
     private char[][] board = new char[size][size];
     private char[][] displayBoard = new char[size][size];
+    private boolean gameOver = false;
 
+    void newGame() {
+        createBoard();
+        createDisplayBoard();
+        placeMines();
+        calculateSurroundingMines();
+    }
 
     void createBoard() {
         for (int i = 0; i < size; i++) {
