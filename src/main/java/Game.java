@@ -31,7 +31,7 @@ public class Game {
             }
 
             if ((x < 0 || x >= board.getSize()) || (y < 0 || y >= board.getSize()) || (action != 'r' && action != 'f')) {
-                System.err.println("Invalid input. Please enter valid coordinates and a action.");
+                System.out.println("Invalid input. Please enter valid coordinates and a action.");
                 continue;
             }
 
