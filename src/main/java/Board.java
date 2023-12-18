@@ -18,7 +18,14 @@ public class Board {
     private char flagged = '⚑';
     private char[][] board = new char[size][size];
     private char[][] displayBoard = new char[size][size];
+    private boolean gameOver = false;
 
+    void newGame() {
+        createBoard();
+        createDisplayBoard();
+        placeMines();
+        calculateSurroundingMines();
+    }
 
     void createBoard() {
         for (int i = 0; i < size; i++) {
@@ -82,12 +89,23 @@ public class Board {
             return;
         }
         displayBoard[x][y] = board[x][y];
+        if (board[x][y] == empty) {
+            for (int i = -1; i <= 1; i++) {
+                for (int j = -1; j <= 1; j++) {
+                    revealCell(x + i, y + j);
+                }
+            }
+        }
     }
 
     void makeMove(int x, int y, char action) {
+        action = Character.toLowerCase(action);
         if (action == 'r') {
-            if (board[x][y] == mine) {
+            if (displayBoard[x][y] == flagged) {
+                System.out.println("Error. You can't reveal a cell which has been flagged.");
+            } else if (board[x][y] == mine) {
                 System.out.println("You hit a mine! Game over.");
+                gameOver = true;
                 printBoard(board);
             } else {
                 revealCell(x, y);
