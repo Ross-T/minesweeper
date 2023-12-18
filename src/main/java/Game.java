@@ -18,6 +18,26 @@ public class Game {
             int y = scanner.nextInt();
             char action = scanner.next().charAt(0);
             board.makeMove(x, y, action);
+            checkWin();
+        }
+    }
+
+    void checkWin() {
+        boolean completed = true;
+        outerLoop:
+        for (int i = 0; i < board.getSize(); i++) {
+            for (int j = 0; j < board.getSize(); j++) {
+                if (board.getDisplayBoard()[i][j] == board.getUnrevealed() && board.getBoard()[i][j] != board.getMine()) {
+                    completed = false;
+                    break outerLoop;
+                }
+            }
+        }
+        if (completed) {
+            board.printBoard(board.getBoard());
+            System.out.println();
+            System.out.println("Congratulations! You win!");
+            board.setGameOver(true);
         }
     }
 }
