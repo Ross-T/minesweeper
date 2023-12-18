@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
@@ -8,15 +9,32 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         while (!board.isGameOver()) {
             board.printBoard(board.getDisplayBoard());
+            int x = -1;
+            int y = -1;
+            char action = ' ';
+
             System.out.println();
             System.out.println("Please enter the coordinates of the cell you wish to select, followed by an action.");
             System.out.println("'R' = Reveal cell");
             System.out.println("'F' = Flag/unflag a cell");
             System.out.println("Enter your move (format: x y action), where x and y are the coordinates, and action is either 'R' or 'F':");
             System.out.println();
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
-            char action = scanner.next().charAt(0);
+
+            try {
+                x = scanner.nextInt();
+                y = scanner.nextInt();
+                action = scanner.next().charAt(0);
+            } catch (InputMismatchException e) {
+                System.out.println("Error, invalid input. Please enter valid coordinates and a valid action.");
+                scanner.nextLine();
+                continue;
+            }
+
+            if ((x < 0 || x >= board.getSize()) || (y < 0 || y >= board.getSize()) || (action != 'r' && action != 'f')) {
+                System.err.println("Invalid input. Please enter valid coordinates and a action.");
+                continue;
+            }
+
             board.makeMove(x, y, action);
             checkWin();
         }
