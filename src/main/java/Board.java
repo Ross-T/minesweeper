@@ -21,26 +21,20 @@ public class Board {
     private boolean gameOver = false;
 
     void newGame() {
-        createBoard();
-        createDisplayBoard();
+        board = initializeBoard(size, empty);
+        displayBoard = initializeBoard(size, unrevealed);
         placeMines();
         calculateSurroundingMines();
     }
 
-    void createBoard() {
+    char[][] initializeBoard(int size, char initialChar) {
+        char[][] newBoard = new char[size][size];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                board[i][j] = empty;
+                newBoard[i][j] = initialChar;
             }
         }
-    }
-
-    void createDisplayBoard() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                displayBoard[i][j] = unrevealed;
-            }
-        }
+        return newBoard;
     }
 
     void placeMines() {
