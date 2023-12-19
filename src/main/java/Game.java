@@ -26,6 +26,7 @@ public class Game {
                 x = scanner.nextInt();
                 y = scanner.nextInt();
                 action = scanner.next().charAt(0);
+                action = Character.toLowerCase(action);
             } catch (InputMismatchException e) {
                 System.out.println("Error, invalid input. Please enter valid coordinates and a valid action.");
                 scanner.nextLine();
@@ -34,6 +35,11 @@ public class Game {
 
             if ((x < 0 || x >= board.getSize()) || (y < 0 || y >= board.getSize()) || (action != 'r' && action != 'f')) {
                 System.out.println("Invalid input. Please enter valid coordinates and a action.");
+                continue;
+            }
+
+            if (board.getBoard()[x][y] != board.getUnrevealed()) {
+                System.out.println("Error. This cell has already been revealed. Please enter the coordinates of an unrevealed cell.");
                 continue;
             }
 
