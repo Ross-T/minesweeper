@@ -3,10 +3,12 @@ import java.util.Scanner;
 
 public class Game {
     Board board = new Board();
+    Timer timer = new Timer();
 
     void playGame() {
         board.newGame();
         Scanner scanner = new Scanner(System.in);
+        timer.start();
         while (!board.isGameOver()) {
             board.printBoard(board.getDisplayBoard());
             int x = -1;
@@ -52,9 +54,11 @@ public class Game {
             }
         }
         if (completed) {
+            timer.stop();
             board.printBoard(board.getBoard());
             System.out.println();
             System.out.println("Congratulations! You win!");
+            timer.displayTime();
             board.setGameOver(true);
         }
     }
