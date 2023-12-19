@@ -19,6 +19,11 @@ public class Board {
     private char[][] board = new char[size][size];
     private char[][] displayBoard = new char[size][size];
     private boolean gameOver = false;
+    private Game game;
+
+    public Board(Game game) {
+        this.game = game;
+    }
 
     void newGame() {
         board = initializeBoard(size, empty);
@@ -98,9 +103,11 @@ public class Board {
             if (displayBoard[x][y] == flagged) {
                 System.out.println("Error. You can't reveal a cell which has been flagged.");
             } else if (board[x][y] == mine) {
-                System.out.println("You hit a mine! Game over.");
                 gameOver = true;
                 printBoard(board);
+                System.out.println("You hit a mine! Game over.");
+                System.out.println();
+                game.endGameMenu();
             } else {
                 revealCell(x, y);
             }

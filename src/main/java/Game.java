@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
-    Board board = new Board();
+    Board board = new Board(this);
     Timer timer = new Timer();
 
     void playGame() {
@@ -55,11 +55,44 @@ public class Game {
         }
         if (completed) {
             timer.stop();
+
             board.printBoard(board.getBoard());
             System.out.println();
             System.out.println("Congratulations! You win!");
             timer.displayTime();
             board.setGameOver(true);
+
+            endGameMenu();
         }
+    }
+
+    void endGameMenu() {
+        char input;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter 'A' to return to the menu");
+        System.out.println("Enter 'B' to quit");
+        System.out.println();
+
+        input = scanner.next().charAt(0);
+        input = Character.toLowerCase(input);
+        while (input != 'a' && input != 'b') {
+            System.out.println("Error, invalid choice.");
+            System.out.println("Enter 'A' to return to the menu");
+            System.out.println("Enter 'B' to quit");
+            input = scanner.next().charAt(0);
+            input = Character.toLowerCase(input);
+        }
+
+        if (input == 'a') {
+            returnToMenu();
+        } else if (input == 'b') {
+            System.out.println("Thanks for playing. See you next time!");
+        }
+    }
+
+    void returnToMenu() {
+        Menu menu = new Menu();
+        menu.mainMenu();
     }
 }
