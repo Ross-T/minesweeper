@@ -118,10 +118,10 @@ public class Board {
             } else if (displayBoard[x][y] == unrevealed) {
                 displayBoard[x][y] = flagged;
             } else {
-                System.out.println("Error. Cannot flag a revealed cell."); // return to menu state
+                System.out.println("Error. Cannot flag a revealed cell.");
             }
         } else {
-            System.out.println("Error, Invalid action. Please enter your desired coordinates followed by either 'r' to reveal a cell or 'f' to flag/unflag a cell."); // return to menu state
+            System.out.println("Error, Invalid action. Please enter your desired coordinates followed by either 'r' to reveal a cell or 'f' to flag/unflag a cell.");
         }
     }
 
