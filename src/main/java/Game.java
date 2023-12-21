@@ -38,7 +38,7 @@ public class Game {
                 continue;
             }
 
-            if (board.getBoard()[x][y] != board.getUnrevealed()) {
+            if (board.getDisplayBoard()[x][y] != board.getUnrevealed()) {
                 System.out.println("Error. This cell has already been revealed. Please enter the coordinates of an unrevealed cell.");
                 continue;
             }
