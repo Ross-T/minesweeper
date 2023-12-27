@@ -16,6 +16,7 @@ Please see below for evidence of the decomposition of the problem into "epic" st
 
 Each "epic" task is decomposed into one method per sub-task, and these sub-tasks each make up a main task assigned to the creation of a class. My initial object-oriented design ideas included use of Encapsulation and Composition. I've encapsulated my data by ensuring that the fields associated with any class are declared as "private", and only allowing them to be accessed through "getter" and "setter" methods. This prevents these field from being directly-accessed unwantingly. I have also demonstrated Composition through the fact that objects of my Game class have their own Board and Timer, preventing code-duplication amongst other benefits.
 
+Development
 
 
 
