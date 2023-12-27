@@ -7,3 +7,12 @@ I have been tasked with the problem of creating a console-based game of my choic
 ![Minesweeper UML Diagram](https://github.com/Ross-T/minesweeper/assets/104386690/c310b402-d1bc-402a-b114-f20e4cecb9e6)
 
 My plan was to adopt an agile approach to development, by splitting my tasks up into sprints and constantly adapting my requirements for each sprint based upon dynamic feedback. I would begin by splitting up my sprints into the different classes which needed to be developed: Board, Game, Menu, Timer, Main (in this order). With regards to quality assurance, I wrote JUnit tests for each of these classes, to ensure that objective criteria were being met with regards to the functionality of my classes.
+
+Please see below for evidence of the decomposition of the problem into "epic" style tasks:
+<img width="902" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/463df14c-3978-4f6e-83de-b75747f04931">
+<img width="1266" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/e6444dba-d70c-4d86-8f67-2096f0fa3db7">
+<img width="1283" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/ded68202-2d95-4ec1-8bef-cafeaabdb433">
+
+
+
+
