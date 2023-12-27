@@ -14,7 +14,7 @@ Please see below for evidence of the decomposition of the problem into "epic" st
 <img width="1283" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/ded68202-2d95-4ec1-8bef-cafeaabdb433">
 <img width="1272" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/ad43ac05-eeac-45b6-bcb6-dbe6656626a6">
 
-Each "epic" task is decomposed into one method per sub-task, and these sub-tasks each make up a main task assigned to the creation of a class.
+Each "epic" task is decomposed into one method per sub-task, and these sub-tasks each make up a main task assigned to the creation of a class. My initial object-oriented design ideas included use of Encapsulation and Composition. I've encapsulated my data by ensuring that the fields associated with any class are declared as "private", and only allowing them to be accessed through "getter" and "setter" methods. I have also demonstrated Composition through the fact that objects of my Game class have their own Board and Timer, preventing code-duplication.
 
 
 
