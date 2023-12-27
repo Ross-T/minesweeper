@@ -12,6 +12,8 @@ Please see below for evidence of the decomposition of the problem into "epic" st
 <img width="902" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/463df14c-3978-4f6e-83de-b75747f04931">
 <img width="1266" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/e6444dba-d70c-4d86-8f67-2096f0fa3db7">
 <img width="1283" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/ded68202-2d95-4ec1-8bef-cafeaabdb433">
+<img width="1272" alt="image" src="https://github.com/Ross-T/minesweeper/assets/104386690/ad43ac05-eeac-45b6-bcb6-dbe6656626a6">
+
 
 
 
