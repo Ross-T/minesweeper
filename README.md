@@ -17,7 +17,9 @@ Please see below for evidence of the decomposition of the problem into "epic" st
 Each "epic" task is decomposed into one method per sub-task, and these sub-tasks each make up a main task assigned to the creation of a class. My initial object-oriented design ideas included use of Encapsulation and Composition. I've encapsulated my data by ensuring that the fields associated with any class are declared as "private", and only allowing them to be accessed through "getter" and "setter" methods. This prevents these field from being directly-accessed unwantingly. I have also demonstrated Composition through the fact that objects of my Game class have their own Board and Timer, preventing code-duplication amongst other benefits.
 
 Development
+I have adopted and used 'good' coding standards throughout my project, for example, I have used Java's naming convention consistently across my classes and methods. My class names (e.g Board, Timer, Game) are all nouns and start with a capital letter, and my method names (e.g newGame, placeMines, revealCell) are all verbs and are formatted in camel case.
 
+In phase 1 of development, I started by developing the Board class, including defining its properties such as "size", "mine", "board" etc. As well as its behaviours such as "initializeBoard", "placeMines", "calculateSurroundingMines" and more. My code review at this stage mainly involved checking that the board initializes correctly, with the correct size and number of mines. As well as this, I spent a lot of time checking that the revealCell method correctly reveals neighbouring adjacent cells in a recursive manner, until a non-empty is reached.
 
 
 
