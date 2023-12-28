@@ -21,5 +21,8 @@ I have adopted and used 'good' coding standards throughout my project, for examp
 
 In phase 1 of development, I started by developing the Board class, including defining its properties such as "size", "mine", "board" etc. As well as its behaviours such as "initializeBoard", "placeMines", "calculateSurroundingMines" and more. My code review at this stage mainly involved checking that the board initializes correctly, with the correct size and number of mines. As well as this, I spent a lot of time checking that the revealCell method correctly reveals neighbouring adjacent cells in a recursive manner, until a non-empty is reached.
 
+Evaluation
+An example of how I have refactored my code can be seen through my implementation of my revealCell method. Initially, this method only revealed the cell specified in its input, however, I refactored this method to eventually also reveal all adjacent empty cells surrounding the specified cell, in a recursive fashion until cells which are not empty are reached.
+
 
 
