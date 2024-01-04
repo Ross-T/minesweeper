@@ -28,6 +28,8 @@ Phase 3 consisted of the development of the Menu class. This class is responsibl
 
 Phase 4 consisted of the development of the Timer class. This class was developed in the last phase because the game was fully functional without it, and it was more of an extra feature. However, the ability to see how long you took to win a game in minesweeper is a key part of the game for competitive players, and further adds an element of competition. Code reviews at this stage involved ensuring that time was being kept accurately, that the time started and ended in the correct places, and that the time was displayed correctly (and in the right format of minutes and seconds). Resulting from the creation of this class, I had to add an instance of the Timer class as an attribute in the Game class. A lot of trial and error was involved in successfully keeping the time and displaying it in the correct format.
 
+I mainly ensured that my code was of high-quality and bug-free through manual testing. This involves running the program and observing the results following a testing criteria. Through this process, I was able to catch many bugs. For example, if the user gave two valid inputs on the same line, separated by a space (e.g "3 4 r 7 6 r"), then my program used to accept this as a valid input and executed both operations simultaneously. Through manual testing, I was able to catch this bug and now my program will not accept such input and prompt the user to give their input again.
+
 Overall, the main challenges to the design of my program included the design of the revealCell() method. This is because recursive thinking isn't easy and it took me a while to come up with the idea to call the same function within its own declaration.
 
 Evaluation
