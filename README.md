@@ -38,3 +38,9 @@ A feature of my board class which I'd like to highlight is my revealCell() metho
 ![image](https://github.com/Ross-T/minesweeper/assets/104386690/dc121016-924e-4d92-accb-364af6c81662)
 
 
+The above also serves as an example of how I have improved an algorithm. Initally, this method simply revealed the appropriate cell at the inputted coordinates, however later on in development I developed the algorithm to recursively reveal adjacent cells. Please see below for my plan for this algorithm:
+
+![image](https://github.com/Ross-T/minesweeper/assets/104386690/950605ba-1d10-42c1-95fd-ea2f7dba5355)
+
+Throughout development of this algorithm, I manually tested the output extensively in order to determine whether the output is as desired, and matches the behaviour exhibited by a tradtional game of minesweeper.
+
