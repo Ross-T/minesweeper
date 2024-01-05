@@ -19,7 +19,7 @@ public class Game {
             board.printBoard(board.getDisplayBoard());
             int x = -1;
             int y = -1;
-            char action = ' ';
+            char action;
 
             System.out.println();
             System.out.println("Please enter the coordinates of the cell you wish to select, followed by an action.");
