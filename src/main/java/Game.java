@@ -17,8 +17,8 @@ public class Game {
         timer.start();
         while (!board.isGameOver()) {
             board.printBoard(board.getDisplayBoard());
-            int x = -1;
-            int y = -1;
+            int x;
+            int y;
             char action;
 
             System.out.println();
