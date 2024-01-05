@@ -1,10 +1,16 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+// The Game class handles the game logic
 public class Game {
+
+    // An instance of the Board class
     Board board = new Board(this);
+
+    // An instance of the Timer class
     Timer timer = new Timer();
 
+    // Method to play the game
     void playGame() {
         board.newGame();
         Scanner scanner = new Scanner(System.in);
@@ -48,6 +54,7 @@ public class Game {
         }
     }
 
+    // Method to check if the player has won the game
     void checkWin() {
         boolean completed = true;
         outerLoop:
@@ -72,6 +79,7 @@ public class Game {
         }
     }
 
+    // Method to display the end game menu
     void endGameMenu() {
         char input;
         Scanner scanner = new Scanner(System.in);
@@ -97,6 +105,7 @@ public class Game {
         }
     }
 
+    // Method to return to the main menu
     void returnToMenu() {
         Menu menu = new Menu();
         menu.mainMenu();

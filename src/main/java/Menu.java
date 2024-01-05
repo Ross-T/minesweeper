@@ -1,9 +1,15 @@
 import java.util.Scanner;
 
+// The Menu class handles user input and output
 public class Menu {
+
+    // A character to store the user's input
     char input;
+
+    // An instance of the Game class
     Game game = new Game();
 
+    // Method to display the main menu
     void mainMenu() {
         System.out.println("Welcome to Minesweeper!");
         System.out.println("Please enter an option:");
@@ -25,6 +31,7 @@ public class Menu {
         }
     }
 
+    // Method to get the user's input and check its validity
     char getUserInput() {
         Scanner scanner = new Scanner(System.in);
         input = scanner.next().charAt(0);
@@ -41,6 +48,7 @@ public class Menu {
     }
 
 
+    // Method to print the game instructions
     void printInstructions() {
         System.out.println("Minesweeper is a game where mines are hidden behind a grid of cells. Your job is to reveal all of the hidden cells on the grid without revealing a mine!");
         System.out.println("Once revealed, cells which which are adjacent to a mine in any direction (including diagonally) will display a number indicating how many adjacent mines there are.");

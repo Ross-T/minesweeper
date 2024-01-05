@@ -9,7 +9,11 @@ import java.util.Random;
 @NoArgsConstructor
 @Getter
 @Setter
+
+// The Board class represents the game board
 public class Board {
+
+    // Class variables for the game settings
     private int size = 10;
     private int mines = 10;
     private char mine = '*';
@@ -21,10 +25,12 @@ public class Board {
     private boolean gameOver = false;
     private Game game;
 
+    // Constructor for the Board class
     public Board(Game game) {
         this.game = game;
     }
 
+    // Method to start a new game
     void newGame() {
         board = initializeBoard(size, empty);
         displayBoard = initializeBoard(size, unrevealed);
@@ -32,6 +38,7 @@ public class Board {
         calculateSurroundingMines();
     }
 
+    // Method to initialize a board
     char[][] initializeBoard(int size, char initialChar) {
         char[][] newBoard = new char[size][size];
         for (int i = 0; i < size; i++) {
@@ -42,6 +49,7 @@ public class Board {
         return newBoard;
     }
 
+    // Method to place mines on the game board
     void placeMines() {
         Random rand = new Random();
         int minesPlaced = 0;
@@ -55,6 +63,7 @@ public class Board {
         }
     }
 
+    // Method to calculate the number of adjacent surrounding mines for each cell
     void calculateSurroundingMines() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -80,6 +89,7 @@ public class Board {
         }
     }
 
+    // Method to reveal a cell
     void revealCell(int x, int y) {
         if (x < 0 || y < 0 || x >= size || y >= size) {
             return;
@@ -97,6 +107,7 @@ public class Board {
         }
     }
 
+    // Method to make a move
     void makeMove(int x, int y, char action) {
         action = Character.toLowerCase(action);
         if (action == 'r') {
@@ -125,6 +136,7 @@ public class Board {
         }
     }
 
+    // Method to print the game board
     void printBoard(char[][] board) {
         System.out.println("  ");
         System.out.print("    ");
@@ -151,6 +163,7 @@ public class Board {
     }
 
 
+    // Method to get a cell from a board
     char getCell(char[][] board, int x, int y) {
         return board[x][y];
     }
