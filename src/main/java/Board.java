@@ -109,7 +109,6 @@ public class Board {
 
     // Method to make a move
     void makeMove(int x, int y, char action) {
-        action = Character.toLowerCase(action);
         if (action == 'r') {
             if (displayBoard[x][y] == flagged) {
                 System.out.println("Error. You can't reveal a cell which has been flagged.");

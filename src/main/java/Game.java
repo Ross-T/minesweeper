@@ -29,18 +29,23 @@ public class Game {
             System.out.println();
 
             try {
-                x = scanner.nextInt();
-                y = scanner.nextInt();
-                action = scanner.next().charAt(0);
-                action = Character.toLowerCase(action);
-            } catch (InputMismatchException e) {
-                System.out.println("Error, invalid input. Please enter valid coordinates and a valid action.");
-                scanner.nextLine();
+                String input = scanner.nextLine().trim();
+                String[] parts = input.split(" ");
+                if (parts.length == 3 && parts[2].length() == 1) {
+                    x = Integer.parseInt(parts[0]);
+                    y = Integer.parseInt(parts[1]);
+                    action = Character.toLowerCase(parts[2].charAt(0));
+                } else {
+                    System.out.println("Invalid input. Please enter valid coordinates and a valid action.");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter valid coordinates and a valid action.");
                 continue;
             }
 
             if ((x < 0 || x >= board.getSize()) || (y < 0 || y >= board.getSize()) || (action != 'r' && action != 'f')) {
-                System.out.println("Invalid input. Please enter valid coordinates and a action.");
+                System.out.println("Invalid input. Please enter valid coordinates and an action.");
                 continue;
             }
 
@@ -88,15 +93,14 @@ public class Game {
         System.out.println("Enter 'B' to quit");
         System.out.println();
 
-        input = scanner.next().charAt(0);
-        input = Character.toLowerCase(input);
-        while (input != 'a' && input != 'b') {
+        String line = scanner.nextLine().trim().toLowerCase();
+        while (line.length() != 1 || (line.charAt(0) != 'a' && line.charAt(0) != 'b')) {
             System.out.println("Error, invalid choice.");
             System.out.println("Enter 'A' to return to the menu");
             System.out.println("Enter 'B' to quit");
-            input = scanner.next().charAt(0);
-            input = Character.toLowerCase(input);
+            line = scanner.nextLine().trim().toLowerCase();
         }
+        input = line.charAt(0);
 
         if (input == 'a') {
             returnToMenu();
