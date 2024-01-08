@@ -1,9 +1,12 @@
+import lombok.Getter;
+
 import java.util.Scanner;
 
 // The Game class handles the game logic
 public class Game {
 
     // An instance of the Board class
+    @Getter
     Board board = new Board(this);
 
     // An instance of the Timer class

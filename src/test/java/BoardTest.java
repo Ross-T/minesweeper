@@ -1,10 +1,5 @@
-import javax.annotation.processing.SupportedAnnotationTypes;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class BoardTest {
@@ -31,4 +26,32 @@ public class BoardTest {
         assertEquals(board.getMines(), mines);
 
     }
+
+    @Test
+    public void testRevealCell() {
+        Board board = new Board(new Game());
+        board.newGame();
+        board.revealCell(0, 0);
+        assertNotEquals(board.getUnrevealed(), board.getDisplayBoard()[0][0]);
+    }
+
+    @Test
+    public void testMakeMove() {
+        Game game = new Game();
+        game.playGame();
+        Board board = game.getBoard();
+        char initialCell = board.getDisplayBoard()[0][0];
+        board.makeMove(0, 0, 'r');
+        char finalCell = board.getDisplayBoard()[0][0];
+        assertNotEquals(initialCell, finalCell);
+    }
+
+    @Test
+    public void testFlagCell() {
+        Board board = new Board(new Game());
+        board.newGame();
+        board.makeMove(0, 0, 'f');
+        assertEquals(board.getFlagged(), board.getDisplayBoard()[0][0]);
+    }
+
 }
