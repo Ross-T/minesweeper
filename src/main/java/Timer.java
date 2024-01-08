@@ -32,4 +32,8 @@ public class Timer {
             System.out.println("Timer is still running...");
         }
     }
+
+    public boolean isRunning() {
+        return this.isRunning;
+    }
 }
